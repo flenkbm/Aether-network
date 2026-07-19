@@ -97,7 +97,7 @@ div#account-block {
         div#xp-bar {
             --bord-w: 3px;
             height: calc(15px - var(--bord-w)*2 - 4px);
-            width: calc(var(--t-w) - 86.08px - 10px);
+            width: calc(var(--t-w) - 88.87px - 10px);
             /**/
             border-image-source: url("../../img/border-slice-Xacc.png");
             border-image-repeat: round;
