@@ -1,0 +1,119 @@
+:root {
+    --dbg-bg11: rgba(255, 0, 0, 0.4);
+    --dbg-bg21: rgba(0, 255, 0, 0.4);
+    --dbg-bg32: rgba(0, 0, 255, 0.4);
+    --dbg-bg41: rgba(255, 255, 255, 0.4);
+    --dbg-bg12: rgba(255, 0, 0, 0.7);
+    --dbg-bg22: rgba(0, 255, 0, 0.7);
+    --dbg-bg32: rgba(0, 0, 255, 0.7);
+    --dbg-bg42: rgba(255, 255, 255, 0.7);
+    --dbg-bg13: rgb(255, 0, 0);
+    --dbg-bg23: rgb(0, 255, 0);
+    --dbg-bg33: rgb(0, 0, 255);
+    --dbg-bg43: rgb(255, 255, 255);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    transition: 0.3s;
+    transition-property: background, color, background-color, src;
+}
+p, h1, h2, h3, h4, h5 {
+    width: fit-content;
+}
+
+body {
+    background: var(--bg-main);
+}
+
+header {
+    --hd-h: 50px;
+    background: var(--bg-dk);
+    width: 100%;
+    height: var(--hd-h);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /**/
+    --theme-toggler-size: min(100px, calc(var(--hd-h)*0.4));
+    img#theme-toggler {
+        aspect-ratio: 1/1;
+        height: var(--theme-toggler-size);
+        background: var(dbg-bg41);
+        margin: 0 2.5%;
+    }
+    h1#title {
+        font-family: 'Courier New', Courier, monospace;
+        color: var(--text-main-X-acc);
+        font-size: min(calc(var(--hd-h)/1.13), calc((var(--screen-w)*0.9 - var(--theme-toggler-size))/8.6));
+        margin: 0 2.5%;
+        /*
+        8.4 * size = width;
+        */
+    }
+}
+
+main {
+    --main-padding-w: 7%;
+    padding: var(--main-padding-w) 20px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+}
+
+div#account-block {
+    background-color: var(--bg-sec);
+    padding: 10px;
+    --t-w: min(calc(var(--screen-w) - var(--main-padding-w)*2 - 10px), calc(400px + 20px));
+    width: var(--t-w);
+    border: 2px var(--border-2) dashed;
+    /**/
+    div.top-block {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        margin-bottom: 5px;
+        /**/
+        h2#nickname {
+            color: var(--text-main);
+        }
+        p#lvl {
+            color: var(--text-main);
+        }
+    }
+    div#xp-block{
+        margin-bottom: 5px;
+        display: flex;
+        flex-wrap: nowrap;
+        align-items: center;
+        justify-content: space-between;
+        /**/
+        div#xp-bar {
+            --bord-w: 3px;
+            height: calc(15px - var(--bord-w)*2 - 4px);
+            width: calc(var(--t-w) - 86.08px - 10px);
+            /**/
+            border-image-source: url("../../img/border-slice-Xacc.png");
+            border-image-repeat: round;
+            border-image-slice: 10;
+            border-image-width: var(--bord-w);
+            border-image-outset: calc(var(--bord-w) + 2px);
+            /**/
+            --xp-percent: 90%;
+            background: linear-gradient(90deg,
+                var(--xp-col) var(--xp-percent),
+                rgba(0,0,0,0) var(--xp-percent));
+        }
+        p#xp-disp {
+            color: var(--text-main);
+        }
+    }
+    p#total-progress {
+        color: var(--text-main);
+    }
+}

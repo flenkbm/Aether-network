@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!---->
+    <script src="js/screen-size-getter.js"></script>
+    <script src="js/style-switch.js"></script>
+    <script src="js/index-data-loader.js"></script>
+    <!---->
+    <link rel="stylesheet" href="css/index/index-color-scheme.css">
+    <link rel="stylesheet" href="css/index/index-style.css">
+    <!---->
+    <title>Aether network</title>
+    <script>
+        //localStorage.clear();
+    </script>
+</head>
+<body class="dark-mode">
+    <header>
+        <h1 id="title">Aether Network</h1>
+        <img src="img/theme-toggler-dark.png" id="theme-toggler" onclick="toggleTheme()">
+    </header>
+    <main>
+        <div id="account-block">
+            <div class="top-block">
+                <h2 id="nickname">JustASleepingCat</h2>
+                <p id="lvl">lvl 24</p>
+            </div>
+            <div id="xp-block">
+                <p id="xp-disp">EXP 014/993</p>
+                <div id="xp-bar"></div>
+            </div>
+            <p id="total-progress">Прогресс сбора элементов: 8 из 45</p>
+        </div>
+        <div id="scanner-block">
+
+        </div>
+    </main>
+</body>
+</html>
