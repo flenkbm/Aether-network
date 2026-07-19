@@ -1,12 +1,12 @@
 function gotoLogin() {
-    window.location.href = window.location.href.replace("index.html", "login.html");
+    window.location.href = "";
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   var raw_usr = localStorage.getItem("Aether-user");
   console.log(raw_usr);
   if (!raw_usr) {
-    gotoLogin();
+    goto_Login();
   }
   const user = JSON.parse(raw_usr);
   const now = Date.now();
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const timeout = 12 * 60 * 60 * 1000; // 12hrs timeout (times minutes, seconds, milliseconds)
   //const timeout = 60 * 1000; // 1min test timeout
   if (now - user["timestamp"] >= timeout) {
-    gotoLogin();
+    goto_Login();
   }
   //Data loading from server part
 });
