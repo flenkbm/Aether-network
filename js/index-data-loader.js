@@ -19,6 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const timeout = 12 * 60 * 60 * 1000; // 12hrs timeout (times minutes, seconds, milliseconds)
   //const timeout = 60 * 1000; // 1min test timeout
   if (now - user["timestamp"] >= timeout) {
+    localStorage.removeItem("Aether-user");
     gotoLogin();
     return;
   }
