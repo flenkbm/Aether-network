@@ -7,13 +7,14 @@ function gotoLogin() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  var raw_usr = JSON.parse(localStorage.getItem("Aether-user"));
+  var raw_usr = localStorage.getItem("Aether-user");
   console.log(raw_usr);
   if (!raw_usr) {
     gotoLogin();
     return;
   }
   const user = JSON.parse(raw_usr);
+  console.log(user);
   const now = Date.now();
   console.log(`Now: ${now}`);
   const timeout = 12 * 60 * 60 * 1000; // 12hrs timeout (times minutes, seconds, milliseconds)
@@ -25,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   //Data loading from server part
   // (this is a "demo" version of data loading which may change, but probably won't)
-  window.fetch(`/API/${raw_usr["UUID"]}.json`)
+  window.fetch(`/API/${user["UUID"]}.json`)
     .then((response) => {
       return response.json();
     })
