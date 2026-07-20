@@ -1,12 +1,17 @@
 function gotoLogin() {
-    window.location.href = "";
+    if (window.location.href.endsWith("index.html")) {
+      window.location.href = window.location.href.replace("index.html", "login.html");
+    } else {
+      window.location.href += "login.html";
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   var raw_usr = localStorage.getItem("Aether-user");
   console.log(raw_usr);
   if (!raw_usr) {
-    goto_Login();
+    gotoLogin();
+    return;
   }
   const user = JSON.parse(raw_usr);
   const now = Date.now();
@@ -14,7 +19,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const timeout = 12 * 60 * 60 * 1000; // 12hrs timeout (times minutes, seconds, milliseconds)
   //const timeout = 60 * 1000; // 1min test timeout
   if (now - user["timestamp"] >= timeout) {
-    goto_Login();
+    gotoLogin();
+    return;
   }
   //Data loading from server part
 });
