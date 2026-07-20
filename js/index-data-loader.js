@@ -1,6 +1,6 @@
 function gotoLogin() {
     if (window.location.href.endsWith("index.html")) {
-      window.location.href = window.location.href.replace("index.html", "login.html");
+      window.location.href = window.location.href.replace("index", "login");
     } else {
       window.location.href += "login.html";
     }
