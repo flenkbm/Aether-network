@@ -7,7 +7,7 @@ function gotoLogin() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  var raw_usr = localStorage.getItem("Aether-user");
+  var raw_usr = JSON.parse(localStorage.getItem("Aether-user"));
   console.log(raw_usr);
   if (!raw_usr) {
     gotoLogin();
