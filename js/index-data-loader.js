@@ -24,4 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
   //Data loading from server part
+  // (this is a "demo" version of data loading which may change, but probably won't)
+  window.fetch(`/API/${raw_usr["UUID"]}`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((json) => {
+      console.log(json);//test thing
+    });
 });
