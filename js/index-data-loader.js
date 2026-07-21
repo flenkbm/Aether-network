@@ -53,15 +53,12 @@ function loadUserData() {
   
 }
 
-async function loadAppData() {
-  await window.fetch(`http://88.210.12.42/API/openfiles/appdata.json`)
-    .then((response) => {
-      return response.json();
-    })
-    .then((json) => {
-      appdata = json;
-      console.log(appdata);//test thing
-    });
-}
-
-document.addEventListener('DOMContentLoaded', () => {loadAppData().then(loadUserData());console.log(userdata);});
+document.addEventListener('DOMContentLoaded', () => {
+  window.fetch(`http://88.210.12.42/API/openfiles/appdata.json`).then((response) => {
+    return response.json();
+  }).then((json) => {
+    appdata = json;
+    console.log(appdata);
+    loadUserData();
+  })
+});
