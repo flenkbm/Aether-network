@@ -26,7 +26,7 @@ function loadUserData() {
   }
   //Data loading from server part
   // (this is a "demo" version of data loading which may change, but probably won't)
-  window.fetch(`http://88.210.12.42/API/opnefiles/${userlogdata["UUID"]}.json`)
+  window.fetch(`http://88.210.12.42/API/openfiles/${userlogdata["UUID"]}.json`)
     .then((response) => {
       return response.json();
     })
