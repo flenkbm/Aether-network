@@ -1,3 +1,8 @@
+// var init
+var userdata;
+var userlogdata;
+var appdata;
+
 function gotoLogin() {
     if (window.location.href.endsWith("index.html")) {
       window.location.href = window.location.href.replace("index", "login");
@@ -37,7 +42,14 @@ function loadUserData() {
 }
 
 function loadAppData() {
-  return;
+  window.fetch(`http://88.210.12.42/API/openfiles/appdata.json`)
+    .then((response) => {
+      return response.json();
+    })
+    .then((json) => {
+      appdata = json;
+      console.log(appdata);//test thing
+    });
 }
 
 document.addEventListener('DOMContentLoaded', () => {loadAppData();loadUserData();console.log(userdata);});
