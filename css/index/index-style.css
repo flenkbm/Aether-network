@@ -105,7 +105,6 @@ div#account-block {
             border-image-width: var(--bord-w);
             border-image-outset: calc(var(--bord-w) + 2px);
             /**/
-            --xp-percent: 90%;
             background: linear-gradient(90deg,
                 var(--xp-col) var(--xp-percent),
                 rgba(0,0,0,0) var(--xp-percent));

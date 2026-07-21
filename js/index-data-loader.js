@@ -29,8 +29,8 @@ function loadUserData() {
     gotoLogin();
     return;
   }
-  //Data loading from server part
-  // (this is a "demo" version of data loading which may change, but probably won't)
+  // Data loading from server part
+  // (may change)
   window.fetch(`http://88.210.12.42/API/openfiles/${userlogdata["UUID"]}.json`)
     .then((response) => {
       return response.json();
@@ -38,11 +38,23 @@ function loadUserData() {
     .then((json) => {
       userdata = json;
       console.log(userdata);//test thing
+      // Data loading onto the page part
+      let nickplace = document.getElementById("nickname");
+    let lvlplace = document.getElementById("lvl");
+    let xpbar = document.getElementById("xp-bar");
+    let xpplace = document.getElementById("xp-disp");
+    let progressplace = document.getElementById("total-progress");
+    nickplace.textContent = userdata["nickname"];
+    lvlplace.textContent = `lvl ${userdata["LVL"]}`;
+    xpbar.style.setProperty('--xp-percent', `${userdata["EXP"]/appdata["levelup-exp"][userdata["LVL"]+1]*100}%`);
+    xpplace.textContent = `EXP ${userdata["EXP"]}/${appdata["levelup-exp"][userdata["LVL"]+1]}`;
+    progressplace.textContent = `Прогресс сбора элементов: ${userdata["created"].length} из ${appdata["total-elements"]}`;
     });
+  
 }
 
-function loadAppData() {
-  window.fetch(`http://88.210.12.42/API/openfiles/appdata.json`)
+async function loadAppData() {
+  await window.fetch(`http://88.210.12.42/API/openfiles/appdata.json`)
     .then((response) => {
       return response.json();
     })
@@ -52,4 +64,4 @@ function loadAppData() {
     });
 }
 
-document.addEventListener('DOMContentLoaded', () => {loadAppData();loadUserData();console.log(userdata);});
+document.addEventListener('DOMContentLoaded', () => {loadAppData().then(loadUserData());console.log(userdata);});
