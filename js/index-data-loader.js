@@ -40,15 +40,15 @@ function loadUserData() {
       console.log(userdata);//test thing
       // Data loading onto the page part
       let nickplace = document.getElementById("nickname");
-    let lvlplace = document.getElementById("lvl");
-    let xpbar = document.getElementById("xp-bar");
-    let xpplace = document.getElementById("xp-disp");
-    let progressplace = document.getElementById("total-progress");
-    nickplace.textContent = userdata["nickname"];
-    lvlplace.textContent = `lvl ${userdata["LVL"]}`;
-    xpbar.style.setProperty('--xp-percent', `${userdata["EXP"]/appdata["levelup-exp"][userdata["LVL"]+1]*100}%`);
-    xpplace.textContent = `EXP ${userdata["EXP"]}/${appdata["levelup-exp"][userdata["LVL"]+1]}`;
-    progressplace.textContent = `Прогресс сбора элементов: ${userdata["created"].length} из ${appdata["total-elements"]}`;
+      let lvlplace = document.getElementById("lvl");
+      let xpbar = document.getElementById("xp-bar");
+      let xpplace = document.getElementById("xp-disp");
+      let progressplace = document.getElementById("total-progress");
+      nickplace.textContent = userdata["nickname"];
+      lvlplace.textContent = `lvl ${userdata["LVL"]}`;
+      xpbar.style.setProperty('--xp-percent', `${userdata["EXP"]/appdata["levelup-exp"][userdata["LVL"]+1]*100}%`);
+      xpplace.textContent = `EXP ${userdata["EXP"]}/${appdata["levelup-exp"][userdata["LVL"]+1]}`;
+      progressplace.textContent = `Прогресс сбора элементов: ${userdata["created"].length} из ${appdata["total-elements"]}`;
     });
   
 }
